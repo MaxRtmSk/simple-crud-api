@@ -15,6 +15,8 @@ const create = (data) => {
 };
 
 const update = (id, updatePerson) => {
+    const findPerson = getById(id);
+    if(!findPerson) return false;
     persons.forEach((person, index) => {
         if (person.id === id) {
           persons[index].name = updatePerson.name;

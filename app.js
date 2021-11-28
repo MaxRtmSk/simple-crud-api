@@ -10,11 +10,8 @@ const PORT = process.env.PORT || 8001;
 const server = http.createServer();
 
 server.on("request", (request, response) => {
+  try {
     request.query = new URL(request.url, `http://${request.headers.host}`);
-    
-    try {
-      
-    
     switch (request.method) {
       case "GET":
         getBody(request, response, get);
@@ -33,23 +30,16 @@ server.on("request", (request, response) => {
         break
   
       default:
-        response.statusCode = 400;
-        response.write("No Response");
+        response.statusCode = 404;
+        response.write("NOT FOUND");
         response.end();
-    };
+    }; 
   } catch (error) {
-      
-  }
-  })
-
-
-// server.on('error', () => {
-//   console.log('eeerrror');
-// });
-
-// process.on('uncaughtException', () => {
-//   console.log('eeeeeeeeeeeeee');
-// })
+    response.statusCode = 500;
+    response.write("500: Server Error");
+    response.end();
+  }    
+});
 
 server.listen(PORT, err => {
     err ? console.error(err) : console.log(`listening on port ${PORT}`)
