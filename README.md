@@ -7,67 +7,78 @@
 3. npm install
 
 
-## How Start Server:
+# How Start Server:
 ---
 1. Create **.env** file
 2. Write **PORT** there, how in env.example
 
-## API 
----
-### `GET` /person
-Request:
+# API 
 
+## `GET` /person
+#### request: 
+`null`
 
-Response:
+#### response:
 
+success: 
 
->Example Success:
-**Code** : `200 OK`
-### `GET` /person/:id
+>**Code** : `200`
 
-Success Response
-**Code** : `200 OK`
+>**Content examples**: [ ]
 
- > Success Response
+## `GET` /person/:id
+#### request: 
+`null`
 
- > /person/:id
+### response:
+- Success **Code** : `200`
 
 ### `POST` /person
-
-
-### `PUT` /person
-
-### `DELETE` /prson/:id
-Success Response
-**Code** : `200 OK`
-
-
-
-
-**Content examples**
-
-    ```json
+#### request:
+ ```json
     {
         "name": "String",
         "age": 20,
-        "email": "joe25@example.com"
+        "hobbies": ["programming"]
     }
-    ```
+```
+#### response:
+- Success **Code** : `200 OK`
+  ```json
+      {
+          "name": "String",
+          "age": 20,
+          "hobbies": ["programming"]
+      }
+  ```
 
+### `PUT` /person:id
+#### request: 
+`null`
 
+request:
+ ```json
+    {
+        "name": "String",
+        "age": 20,
+        "hobbies": ["programming"]
+    }
+```
+
+### `DELETE` /prson/:id
+#### request: 
+`null`
+
+Success Response
+**Code** : `200 OK`
+#### response:
 
 One or two sentence description of what endpoint does.
-
+ 
 
 `POST` /endpoint
 
 
 Supported attributes:
 
-| Attribute   | Type     | Required               | Description           |
-| :---------- | :------- | :--------------------- | :-------------------- |
-| `attribute` | datatype | **{check-circle}** Yes | Detailed description. |
-| `attribute` | datatype | **{dotted-circle}** No | Detailed description. |
-| `attribute` | datatype | **{dotted-circle}** No | Detailed description. |
-| `attribute` | datatype | **{dotted-circle}** No | Detailed description. |
 
